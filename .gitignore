@@ -1,0 +1,49 @@
+# =======================================
+# macOS
+# =======================================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Archivos de thumbnail
+._*
+
+# Icono en carpetas
+Icon?
+
+# Archivos temporales de Spotlight
+.Spotlight-V100
+.Trashes
+
+# =======================================
+# Node / JavaScript
+# =======================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# build / dist
+dist/
+build/
+
+# lockfiles (opcional, si quieres mantenerlos, quita esta parte)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# =======================================
+# VSCode / editores
+# =======================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =======================================
+# Otros
+# =======================================
+.env
+.env.*
+*.local
