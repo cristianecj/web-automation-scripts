@@ -25,7 +25,7 @@ Los scripts están organizados por plataforma y funcionalidad:
 3. Copia y pega el script deseado.
 4. Sigue las instrucciones que aparezcan (prompts, confirmaciones, etc.).
 
-> [!NOTE] Nota importante
+> [!NOTE]
 > Todos los scripts interactúan directamente con la web, imitando interacciones humanas. **Usa con responsabilidad y bajo tu propia cuenta.**
 
 ## Buenas prácticas
