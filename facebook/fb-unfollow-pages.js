@@ -26,6 +26,8 @@
         el.getAttribute("aria-label")?.includes("opciones")
     );
 
+    console.log(`ℹ️ Menús encontrados: ${menus.length}`);
+
     for (let i = 0; i < menus.length; i++) {
       menus[i].click();
       await delay(800);
@@ -35,6 +37,10 @@
     const items = Array.from(
       document.querySelectorAll('[role="menuitem"]')
     ).filter((el) => /Ya no me gusta|Dejar de seguir/i.test(el.innerText));
+
+    console.log(
+      `ℹ️ Elementos para unfollow encontrados en este lote: ${items.length}`
+    );
 
     for (let j = 0; j < items.length; j++) {
       items[j].click();
@@ -48,7 +54,7 @@
     return items.length;
   }
 
-  // Bucle
+  // Bucle principal
   let keepGoing = true;
   while (keepGoing && round <= maxRounds) {
     const clicks = await unfollowBatch();
@@ -57,10 +63,17 @@
       console.log("⬇️ Haciendo scroll para cargar más...");
       window.scrollTo(0, document.body.scrollHeight);
       await delay(4000); // esperar carga
-      const newMenus = document.querySelectorAll('div[role="button"]').length;
-      keepGoing = newMenus > 0;
+      const newMenus = Array.from(
+        document.querySelectorAll('div[role="button"]')
+      ).filter(
+        (el) =>
+          el.innerText.trim() === "" &&
+          el.getAttribute("aria-label")?.includes("opciones")
+      );
+      console.log(`ℹ️ Nuevos menús cargados: ${newMenus.length}`);
+      keepGoing = newMenus.length > 0;
     }
   }
 
-  console.log("🎉 Proceso finalizado. Total de unfollows:", totalClicks);
+  console.log(`🎉 Proceso finalizado. Total de unfollows: ${totalClicks}`);
 })();
